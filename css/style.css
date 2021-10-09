@@ -12,6 +12,10 @@ a {
   list-style: none;
 }
 
+body {
+  background-color: #1f2b2d;
+}
+
 #home {
   position: relative;
   min-height: 40vh;
@@ -27,7 +31,7 @@ a {
   left: 0;
   min-height: 40vh;
   width: 100%;
-  background: url("/img/bg.jfif") no-repeat center center/cover;
+  background: url("/img/bg.jpg") no-repeat center center/cover;
   z-index: -1000;
 }
 
@@ -46,11 +50,65 @@ a {
   font-family: "Architects Daughter", cursive;
 }
 
+
+main {
+  padding: 20px;
+  padding-top: 30px;
+}
+
+.container {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.container .imgBox {
+  transition: all 0.3s linear;
+}
+.container img {
+  max-width: 100%;
+  box-shadow: 0px 0px 5px 0 black;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+}
+
+.container .content {
+  font-family: "Indie Flower", cursive;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 2px 0 white;
+  min-width: 100%;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 11px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.4s linear;
+  margin: auto;
+  left: 0;
+  bottom: 3px;
+  word-break: break-all;
+}
+.container:hover .content {
+  z-index: inherit;
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+  transform: scaleX(0.95);
+}
+.container:hover .imgBox {
+  transform: scaleX(0.95);
+}
+
+.container:hover img {
+  box-shadow: 0px 0px 10px 3px black;
+}
+
 #nav_button {
   padding: 23px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #nav_button a {
@@ -67,47 +125,6 @@ a {
   cursor: pointer;
 }
 
-main {
-  padding: 20px;
-}
-
-.container {
-  margin-bottom: 20px;
-}
-
-.container .imgBox {
-  position: relative;
-}
-.container img {
-  max-width: 100%;
-  box-shadow: 0px 0px 5px 0 black;
-  border-radius: 5px;
-  border: 1px solid whitesmoke;
-}
-
-.container .content {
-  font-family: "Indie Flower", cursive;
-  border-radius: 5px;
-  box-shadow: inset 0px 0px 2px 0 white;
-  margin-top: -122px;
-  min-width: 100%;
-  position: relative;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  padding: 20px;
-  visibility: hidden;
-  opacity: 0;
-  z-index: -1;
-  transition: all 0.5s linear 0.1s;
-  letter-spacing: 1;
-}
-.container:hover .content {
-  z-index: inherit;
-  visibility: visible;
-  opacity: 1;
-  cursor: pointer;
-}
-
 footer {
   text-align: center;
   background-color: black;
@@ -119,21 +136,36 @@ footer {
 
 footer span:nth-child(2) {
   margin-top: 10px;
-    display: block;
-    padding: 5px;
-}
-footer span:nth-child(2) a{
-  background-color: chartreuse;
-    color: black;
-    border-radius: 2px;
-    padding: 5px 8px;
+  display: block;
+  padding: 5px;
 }
 
-@media screen and (min-width: 900px) {
+footer span:nth-child(2) a {
+  background-color: chartreuse;
+  color: black;
+  border-radius: 2px;
+  padding: 5px 8px;
+}
+
+@media screen and (min-width: 1270px){
   main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+  }
+  #home {
+    min-height: 60vh;
+  }
+  #home::before {
+    min-height: 60vh;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1270px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
     grid-gap: 20px;
   }
   #home {
@@ -152,13 +184,9 @@ footer span:nth-child(2) a{
   }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 320px) {
   .container .content {
-    margin-top: -65px;
-    max-height: 65px;
-    line-height: 15px;
-    padding: 6px;
-    letter-spacing: 1px;
+    line-height: 20px;
   }
   .container .content h2 {
     font-size: 1em;
