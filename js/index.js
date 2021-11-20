@@ -15,6 +15,7 @@
         for (const elem of myData) {
             addCards(elem);
         }
+        hideLoader();
     };
     getData(url);
 
@@ -23,16 +24,15 @@
         const card = document.createElement("article");
         card.innerHTML = `<div class='container'>${await createCardContent(data)}</div>`;
         mainElement.appendChild(card);
-        hideLoader();
     };
     // creating images card content
     async function createCardContent(data) {
         let html = `<div class='imgBox'><a href='${await data.download_url}' target='_blank'><img src='${await data.download_url}' alt='background_image'></a></div>`;
         html += `<div class='content'><h3>Credits: ${await data.author}</h3>`;
         html += `<p><strong>Size:</strong> ${data.width} x ${await data.height}</p>`;
-        html += `<p><strong>Source:</strong> <a href='${await data.url}' target='_blank'> ${data.url}</a></p></div>`;
         return html;
     };
+
     // Next button
     document.getElementById("next").addEventListener('click', function (e) {
         e.preventDefault();
@@ -46,7 +46,7 @@
 
     });
     // Previous button
-    document.getElementById("previous").addEventListener('click',function (e) {
+    document.getElementById("previous").addEventListener('click', function (e) {
         e.preventDefault();
         if (count === 1) {
             count = 34;
@@ -56,7 +56,7 @@
         url = `https://picsum.photos/v2/list?page=${count}&limit=30`;
         getData(url);
     });
-    function hideLoader(){
+    function hideLoader() {
         document.querySelector('.loader').style.display = "none";
     }
 }());

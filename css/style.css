@@ -16,34 +16,39 @@ a:hover {
 }
 
 body {
-  background-color: #1f2b2d;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+  position: fixed;
+  background-color: #1f1f1a;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 40px;
+  z-index: 1000;
+}
+
 header nav {
-  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: white;
 }
 
-header nav span:nth-child(1) {
-  padding: 5px 10px;
-  border-radius: 2px;
-  margin-right: 2em;
-  box-shadow: inset 0 0 1px 0 white;
-  font-family: "Architects Daughter", cursive;
+header nav h1 {
+  font-size: 1.5em;
 }
 
 header nav span a {
   color: white;
   text-decoration: underline;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header nav span a:hover {
-  color: rgba(128, 255, 0, 0.664);
+  color: rgba(128, 255, 0, 0.5);
+  cursor: pointer;
 }
 
 #home {
@@ -53,11 +58,17 @@ header nav span a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 13.5vh;
 }
 #home::before {
   position: absolute;
   content: "";
-  background: url("../img/bg.jpg") no-repeat center center/cover;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url("https://images.pexels.com/photos/2835436/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+      no-repeat center center/cover;
   top: 0;
   left: 0;
   min-height: 45vh;
@@ -65,20 +76,22 @@ header nav span a:hover {
   z-index: -1;
 }
 
-#home h1 {
-  font-family: "Architects Daughter", cursive;
-  letter-spacing: 2px;
-  font-size: 1.65em;
-  text-shadow: 3px -3px 2px chartreuse;
+#home h2 {
+  font-family: "Changa", sans-serif;
+  letter-spacing: 1px;
+  font-size: 2em;
+  text-shadow: 1px -2px 5px #fffbfbc4;
 }
 #home a {
-  margin-top: 10px;
-  background-color: chartreuse;
+  background-color: rgba(255, 255, 255, 0.849);
   color: black;
   cursor: pointer;
   font-size: 88%;
-  font-style: italic;
   font-family: "Architects Daughter", cursive;
+  font-weight: 500;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  border-radius: 2px;
 }
 
 main {
@@ -90,7 +103,6 @@ main {
   justify-content: center;
   margin-top: 20px;
   grid-column: 1/-1;
-
 }
 
 .container {
@@ -103,9 +115,8 @@ main {
 }
 .container .imgBox a img {
   max-width: 100%;
-  box-shadow: 0px 0px 5px 0 black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
-  border: 1px solid whitesmoke;
 }
 
 .container .content {
@@ -149,22 +160,21 @@ main {
 }
 
 #nav_button a {
-  color: black;
-  background-color: rgb(217 218 222);
+  color: rgb(255, 255, 255);
+  background-color: #1f1f1a;
   padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 0 black;
+  border-radius: 4px;
   font-family: "Architects Daughter", cursive;
 }
 
 #nav_button a:hover {
-  box-shadow: inset 0 0 5px 0 black;
+  box-shadow: 0 0 3px 0 #1f1f1a;
 }
 
 footer {
   text-align: center;
-  background-color: black;
-  color: chartreuse;
+  background-color: #1f1f1a;
+  color: white;
   padding: 20px;
   position: relative;
   bottom: 0;
@@ -177,14 +187,14 @@ footer span:nth-child(2) {
 }
 
 footer span:nth-child(2) a {
-  background-color: white;
+  background-color: gainsboro;
   color: black;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 4px;
 }
 
 footer span:nth-child(2) a:hover {
-  background-color: rgba(128, 255, 0, 0.664);
+  background-color: white;
 }
 
 @media screen and (min-width: 1270px) {
@@ -228,9 +238,18 @@ footer span:nth-child(2) a:hover {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 370px) {
+  header {
+    padding: 15px;
+  }
   header nav {
     font-size: 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+  }
+  #home {
+    margin-top: 10vh;
   }
   .container .content {
     line-height: 20px;
