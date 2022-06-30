@@ -20,24 +20,49 @@ body {
 }
 
 header {
-  position: fixed;
-  background-color: #1f1f1a;
+  position: sticky;
+  background-color: white;
   width: 100%;
   top: 0;
   left: 0;
   padding: 40px;
   z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 header nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul li{
+  list-style-type: none;
+  margin: 0 1em;
+  cursor: pointer;
+  color: #1f1f1a;
+  font-size: 1.1rem;
+}
+header nav ul li:hover{
+  text-decoration: underline;
+}
+
+header nav ul li a{
+  color: #1f1f1a;
+}
+
+header nav div {
+  width: max-content;
+  color: #1f1f1a;
+}
+header nav div:hover {
+  cursor: pointer;
 }
 
 header nav h1 {
   font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header nav span a {
@@ -53,37 +78,37 @@ header nav span a:hover {
 
 #home {
   position: relative;
-  min-height: 45vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 13.5vh;
+  margin-top: 2em;
+  background-color: #00000033;
+  user-select: none;
 }
 #home::before {
   position: absolute;
   content: "";
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.2)
-    ),
-    url("https://images.pexels.com/photos/2835436/pexels-photo-2835436.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+  background: 
+    url("https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
       no-repeat center center/cover;
   top: 0;
   left: 0;
-  min-height: 45vh;
+  min-height: 65vh;
   width: 100%;
   z-index: -1;
 }
 
 #home h2 {
-  font-family: "Changa", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
-  font-size: 2em;
-  text-shadow: 1px -2px 5px #fffbfbc4;
+  font-size: 3em;
+  text-shadow: 1px -1px 0px #fffbfbc4;
+  color: #fff;
 }
 #home a {
-  background-color: rgba(255, 255, 255, 0.849);
+  background-color: bisque;
   color: black;
   cursor: pointer;
   font-size: 88%;
@@ -157,44 +182,52 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: 8em;
 }
 
 #nav_button a {
-  color: rgb(255, 255, 255);
-  background-color: #1f1f1a;
+  color: black;
+  background-color: bisque;
   padding: 5px 8px;
   border-radius: 4px;
   font-family: "Architects Daughter", cursive;
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 1px 4px;
 }
 
 #nav_button a:hover {
-  box-shadow: 0 0 3px 0 #1f1f1a;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.55);
 }
 
-footer {
+.footer {
   text-align: center;
-  background-color: #1f1f1a;
-  color: white;
-  padding: 20px;
-  position: relative;
-  bottom: 0;
-}
-
-footer span:nth-child(2) {
-  margin-top: 10px;
-  display: block;
-  padding: 5px;
-}
-
-footer span:nth-child(2) a {
-  background-color: gainsboro;
-  color: black;
-  border-radius: 4px;
-  padding: 4px;
-}
-
-footer span:nth-child(2) a:hover {
   background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  color: #1f1f1a;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: rgb(0 0 0 / 10%) 0px -1px 3px 0px, rgb(0 0 0 / 6%) 0px -1px 2px 0px;
+  font-weight: bold;
+  font-size: 0.85em;
+  height: 15vh;
+  transition: bottom 1s ease-in-out;
+}
+
+.footer div p:first-child {
+  margin-bottom: 0.5em;
+}
+
+#minIcon {
+    position: absolute;
+    font-size: 2em;
+    left: 0;
+    top: 0%;
+    font-family: cursive;
+    background-color: black;
+    color: white;
+    transform: rotate(180deg);
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1270px) {
@@ -205,10 +238,10 @@ footer span:nth-child(2) a:hover {
     grid-gap: 20px;
   }
   #home {
-    min-height: 60vh;
+    min-height: 65vh;
   }
   #home::before {
-    min-height: 60vh;
+    min-height: 65vh;
   }
   #home h1 {
     letter-spacing: 4px;
@@ -223,10 +256,10 @@ footer span:nth-child(2) a:hover {
     grid-gap: 20px;
   }
   #home {
-    min-height: 60vh;
+    min-height: 65vh;
   }
   #home::before {
-    min-height: 60vh;
+    min-height: 65vh;
   }
   #home h1 {
     letter-spacing: 4px;
@@ -238,18 +271,31 @@ footer span:nth-child(2) a:hover {
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 570px) {
   header {
-    padding: 15px;
+    padding: 18px;
   }
   header nav {
-    font-size: 15px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
+    flex-direction: column;
+  }
+  #logo {
+    text-align: center;
+  }
+  #logo h1 {
+    font-size: 1.2em;
+  }
+  #logo span {
+    font-size: 0.8em;
+  }
+
+  nav ul {
+    margin-top: 1em;
   }
   #home {
     margin-top: 10vh;
+  }
+  #home h2 {
+    font-size: 2em;
   }
   .container .content {
     line-height: 20px;
@@ -260,4 +306,30 @@ footer span:nth-child(2) a:hover {
   .container .content p {
     font-size: 0.8em;
   }
+}
+
+
+/*Utility classes*/
+.flexbox {
+  display: flex;
+}
+
+.flex-dir-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.align-item-center {
+  align-items: center;
 }

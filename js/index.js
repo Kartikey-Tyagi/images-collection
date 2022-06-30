@@ -1,9 +1,12 @@
 (function () {
     "use strict"
     const mainElement = document.querySelector("main");
+    const minIcon = document.getElementById('minIcon');
+    const footer = document.querySelector('.footer');
     let myData;
     let myNum = Math.floor(Math.random() * 33);
     let count = myNum;
+    let minimised = false;
     let url = `https://picsum.photos/v2/list?page=${count}&limit=30`;
     mainElement.innerHTML = `<div class="loader"><img src="./img/loader.gif"></div>`;
 
@@ -18,7 +21,6 @@
         hideLoader();
     };
     getData(url);
-
     // adding images card
     async function addCards(data) {
         const card = document.createElement("article");
@@ -32,7 +34,23 @@
         html += `<p><strong>Size:</strong> ${data.width} x ${await data.height}</p>`;
         return html;
     };
-
+    minIcon.addEventListener('click', function () {
+        if (!minimised) {
+            footer.style.bottom = '-12%';
+            minIcon.style.transform = 'rotate(0deg)';
+            minimised = true;
+        } else {
+            footer.style.bottom = '0';
+            minIcon.style.transform = 'rotate(180deg)';
+            minimised = false;
+        }
+    })
+    document.getElementById('navHome').addEventListener('click', function () {
+        location.reload();
+    });
+    document.getElementById('logo').addEventListener('click', function () {
+        location.reload();
+    });
     // Next button
     document.getElementById("next").addEventListener('click', function (e) {
         e.preventDefault();

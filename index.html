@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./img/bg.jpg" type="image/x-icon">
     
@@ -20,8 +23,14 @@
 <body>
     <header>
         <nav>
-            <h1>IMAGE COLLECTION</h1>
-            <span>Download High Quality Images</span>
+            <div id="logo">
+                <h1>IMAGE COLLECTION</h1>
+                <span>Download High Quality Images</span>
+            </div>
+            <ul class="flexbox align-items-center justify-content-center">
+                <li id="navHome">Home</li>
+                <li><a href="https://github.com/Kartikey-Tyagi/myimagesgallery" target="_blank">Source</a></li>
+            </ul>
         </nav>
     </header>
         <div id="home">
@@ -34,14 +43,15 @@
         <a href="#" id="previous">Previous</a>
         <a href="#" id="next">Next</a>
     </div>
-    <footer>
-        <span>
+    <footer class="footer flexbox align-item-center justify-center">
+        <div>
             <p>Made With &#9825; </p>
-            <p>Copyright &copy; 2021 | Images Collection |</p>
-        </span>
-        <span><a href="https://github.com/Kartikey-Tyagi/myimagesgallery" target="_blank">Source</a></span>
+            <p>Copyright &copy; 2021 | Images Collection | All Rights Reserved</p>
+        </div>
+        <p id="minIcon">^</p>
+        <!-- <span>Source</span> -->
     </footer>
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js" defer></script>
 </body>
 
 </html>
